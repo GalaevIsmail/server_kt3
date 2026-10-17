@@ -12,6 +12,9 @@ test('Seller/Product assignment: real PostgreSQL API', async t => {
   const sellers = [], products = [];
   try {
     await t.test('Swagger UI and documented CRUD operations and DTOs', async () => {
+      const root = await fetch(base + '/', { redirect: 'manual' });
+      assert.equal(root.status, 302);
+      assert.equal(root.headers.get('location'), '/api');
       const ui = await fetch(base + '/api');
       assert.equal(ui.status, 200);
       assert.match(await ui.text(), /swagger-ui/);

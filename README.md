@@ -8,11 +8,12 @@ NestJS 11 + PostgreSQL 16 + TypeORM. Полный CRUD продавцов и т�
 
 ```bash
 npm ci
-cp .env.example .env
-docker compose up -d --wait db
-npm run migration:run
-npm run start:dev
+npm run dev
 ```
+
+`npm run dev` создаёт `.env`, если его ещё нет, запускает PostgreSQL через Docker, ожидает готовности, применяет миграции и запускает API. Существующий `.env` сохраняется. Docker Desktop / Docker Engine должен работать. Открыв главную страницу на порту 3000, вы автоматически попадёте в Swagger.
+
+Для запуска по отдельным шагам: `npm run setup`, затем `npm run start:dev`.
 
 Swagger UI доступен по пути **`/api`** на порту `PORT` (по умолчанию 3000). OpenAPI JSON — `/api-json`. Для каждого метода в Swagger можно выбрать **Try it out**, заполнить тело/параметры и выполнить запрос. Сначала создайте продавца, затем товар с его `sellerId`.
 

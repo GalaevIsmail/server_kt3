@@ -12,7 +12,9 @@
     "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/database/data-source.ts",
     "test:e2e": "node --test test/*.test.js",
     "demo:n-plus-one": "ts-node src/database/sellers-n-plus-one-demo.ts",
-    "demo:n-plus-one:users": "ts-node src/database/n-plus-one-demo.ts"
+    "demo:n-plus-one:users": "ts-node src/database/n-plus-one-demo.ts",
+    "setup": "node scripts/setup.cjs",
+    "dev": "npm run setup && npm run start:dev"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",
